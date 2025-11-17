@@ -1,0 +1,22 @@
+/* Collapsible Window Styling */
+.collapsible .title-bar-text {
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+}
+
+.collapsible-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-out;
+}
+
+/* When active/open */
+.collapsible.open .collapsible-body {
+  max-height: 400px; /* enough space to expand */
+  transition: max-height 0.25s ease-in;
+}
