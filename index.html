@@ -8,29 +8,7 @@
   </head>
 
   <body>
-    <ul role="menu-bar">
-    <li role="menu-item" tabindex="0" aria-haspopup="false">
-      <a href="index.html" tabindex="0">Home</a>
-    </li>
-    <li role="menu-item" tabindex="0" aria-haspopup="true">
-      Experience
-      <ul role="menu">
-        <li role="menu-item">Still Working on this!</a></li>
-      </ul>
-    </li>
-    <li role="menu-item" tabindex="0" aria-haspopup="true">
-      Projects
-      <ul role="menu" id="menu-projects"></ul>
-    </li>
-    <li role="menu-item" tabindex="0" aria-haspopup="true">
-      Links
-      <ul role="menu">
-        <li role="menu-item"><a href="https://github.com/keshava1">Github</a></li>
-        <li role="menu-item"><a href="https://www.linkedin.com/in/keshavach/">LinkedIn</a></li>
-      </ul>
-    </li>
-  </ul>
-
+    <div id="navbar" ></div>
     <div class="window" style="max-width: 800px; margin: 40px auto;">
       <div class="title-bar">
         <div class="title">Portfolio - Keshav Acharya</div>
@@ -45,25 +23,15 @@
       </p>
       <p>
         I’ve worked in industry, research, and freelance environments, so I’m comfortable picking things up quickly and shipping work in fast-moving settings.  
-        I'm especially interested in systems programming, backend architecture, developer tools, and human-centered design.
+        I'm especially interested in systems programming, backend architecture, and human-centered design.
+      </p>
+      <p>
+        Currently I'm in my third year at the University of Washington, studying Computer Science and Economics.
       </p>
         </section>
         <section>
           <h2>Experience</h2>
-          <ul>
-            <li>
-              <strong>Electric Era</strong><br>
-              Software Engineering Intern <i>04/2025-09/2025</i>
-            </li>
-            <li>
-              <strong>University of Washington</strong><br>
-              Undergraduate Researcher <i>03/2025-09/2025</i>
-            </li>
-            <li>
-              <strong>Success Koach</strong><br>
-              Full Stack Developer (Freelance) <i>09/2024-10/2024</i>
-            </li>
-          </ul>
+          <ul id="experience-list"></ul>
         </section>
         <section>
           <h2> Projects </h2>
@@ -121,20 +89,8 @@
     </div>
     
     <script src="./info.js"></script>
+    <script src="./components/navbar.js"></script>
     <script>
-
-      function renderMenuProjects() {
-        const menuList = document.getElementById("menu-projects");
-        if(!menuList) {
-          return;
-        }
-        PROJECTS.forEach(p => {
-          const li = document.createElement("li");
-          li.setAttribute("role", "menu-item");
-          li.innerHTML = `<a href="${p.link}" target="_blank">${p.name}</a>`;
-          menuList.appendChild(li);
-        });
-      }
 
       function renderProjectSection() {
         const list = document.getElementById("project-list");
@@ -144,15 +100,40 @@
         PROJECTS.forEach(p => {
           const li = document.createElement("li");
           li.innerHTML = `
-            <strong><a href="${p.link}" target="_blank">${p.name}</a></strong><br>
+            <strong><a href="${p.link}" target="_blank">${p.name} (${p.year})</a></strong><br>
             ${p.description}
           `;
           list.appendChild(li);
         });
       }
 
-      document.addEventListener('DOMContentLoaded', renderMenuProjects);
+      function renderExperienceSection() {
+        const list = document.getElementById("experience-list");
+        if(!list) {
+          console.log("No list");
+          return;
+        }
+        
+        EXPERIENCE.forEach(e => {
+          const li = document.createElement("li");
+          if(e.link) {
+            li.innerHTML = `
+                <strong><a href="${e.link}" target="_blank">${e.company}</a></strong> - ${e.title}<br>
+                <i style="color: gray;">(${e.date})</i>
+            `;
+          } else {
+            li.innerHTML = `
+              <strong>${e.company}</strong> - ${e.title}<br>
+              <i style="color: gray;">(${e.date})</i>
+            `;
+          }
+
+          list.appendChild(li);
+        })
+      }
+
       document.addEventListener('DOMContentLoaded', renderProjectSection);
+      document.addEventListener('DOMContentLoaded', renderExperienceSection);
     </script>
   </body>
 </html>

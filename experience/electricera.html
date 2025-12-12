@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electric Era - Keshav Acharya</title>
+    <link rel="stylesheet" href="https://sakofchit.github.io/system.css/system.css" />
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+    <div class="window" style="max-width: 800px; margin: 40px auto;">
+      <div class="title-bar">
+        <div class="title">Electric Era - Software Engineering Intern</div>
+      </div>
+
+      <div class="window-body">
+        <div id="experience-header"></div>
+
+        <section>
+          <h2>Overview</h2>
+          <p>
+            At Electric Era, I worked on production systems that directly power and manage real-world electric vehicle
+            charging infrastructure. My work spanned backend APIs, hardware communication, firmware delivery,
+            real-time transaction control, and third-party interoperability.
+          </p>
+        </section>
+
+        <section>
+          <h2>Key Contributions</h2>
+          <ul>
+            <li>
+              Designed and implemented a full <a href="https://evroaming.org/wp-content/uploads/2024/11/OCPI-2.2.1-d2.pdf">Open Charge Point Interface (OCPI 2.2.1)</a>
+              integration, including automated synchronization for site data and charging session status. Built
+              caching, diffing, and alerting logic to enforce strong data integrity and reliable interoperability with
+              third-party vendors.
+            </li>
+            <br>
+            <li>
+              Developed a complete remote transaction control flow for electric chargers (remote start and stop),
+              spanning cloud services down to charger hardware. Enabled third party vendors to reliably initiate sessions with
+              real-time status feedback while maintaining reliability under intermittent internet connectivity.
+            </li>
+            <br>
+            <li>
+              Engineered multiple over-the-air firmware update pipelines for different charger boards using serial connections,
+              Modbus, and FTP servers. Implemented validation and rollback systems to guarantee safe updates.
+              These pipelines were deployed and directly improved system reliability.
+            </li>
+            <br>
+            <li>
+              Integrated payment terminals to support RFID-based charging sessions, enabling drivers to initiate
+              charging without a credit card and expanding supported payment workflows.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <p>
+            <a href="../index.html">← Back to Home</a>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="../info.js"></script>
+    <script src="/components/navbar.js"> </script>
+    <script src="/components/experienceheader.js"></script>
+    <script>
+      renderExperienceHeader("Electric Era");
+    </script>
+  </body>
+</html>

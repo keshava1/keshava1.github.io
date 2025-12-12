@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University of Washington - Keshav Acharya</title>
+    <link rel="stylesheet" href="https://sakofchit.github.io/system.css/system.css" />
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <div class="window" style="max-width: 800px; margin: 40px auto;">
+      <div class="title-bar">
+        <div class="title">University of Washington - Undergraduate Researcher</div>
+      </div>
+
+      <div class="window-body">
+
+        <div id="experience-header"></div>
+
+        <section>
+          <h2>Overview</h2>
+          <p>
+            • Developed an anonymous verification flow for UW students in Go utilizing the <a href="https://eprint.iacr.org/2024/447">Origo</a> framework, using zero-
+            knowledge proofs and TLS oracles.
+          </p>
+          <p>
+            • Used our verification flow to develop a student-only UW discussion forum without storing personal identifiers.
+          </p>
+        </section>
+
+        <section>
+          <h2><a href="https://github.com/abanrj/sp-2025-oracle-project">Github page</a></h2>
+        </section>
+        <section>
+          <p>
+            <a href="/index.html">← Back to Home</a>
+          </p>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Shared data + components -->
+    <script src="/info.js"></script>
+    <script src="/components/navbar.js"></script>
+    <script src="/components/experienceHeader.js"></script>
+
+    <!-- Page init -->
+    <script>
+      renderExperienceHeader("University of Washington");
+    </script>
+  </body>
+</html>
