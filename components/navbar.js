@@ -1,10 +1,16 @@
 fetch("/components/navbar.html")
-  .then(res => res.text())
+  .then(res => {
+    if (!res.ok) throw new Error("Could not load navigation");
+    return res.text();
+  })
   .then(html => {
     document.getElementById("navbar").innerHTML = html;
     renderMenuProjects();
     renderMenuExperience();
   })
+  .catch(() => {
+    document.getElementById("navbar").innerHTML = '<a href="/index.html">Home</a>';
+  });
 
 function renderMenuProjects() {
   const menuList = document.getElementById("menu-projects");
@@ -17,9 +23,9 @@ function renderMenuProjects() {
     if(!p.link) return;
     const li = document.createElement("li");
     li.setAttribute("role", "menu-item");
-    li.innerHTML = `<a href="${p.link}" target="_blank">
-      <strong>${p.name}<strong><br>
-      <span style="font-size: 0.85em; color: gray;">${p.year}</span>
+    li.innerHTML = `<a href="${p.link}" target="_blank" rel="noopener">
+      <strong>${p.name}</strong><br>
+      <span style="font-size: 0.85em; color: gray;">${p.year || ""}</span>
     </a>`;
     menuList.appendChild(li);
   });

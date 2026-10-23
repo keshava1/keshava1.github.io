@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keshav Acharya</title>
+    <meta name="description" content="Keshav Acharya — software engineer studying Computer Science and Economics at the University of Washington.">
     <link rel="stylesheet" href="https://sakofchit.github.io/system.css/system.css">
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
     <div id="navbar" ></div>
-    <div class="window" style="max-width: 800px; margin: 40px auto;">
+    <main class="window portfolio-window" id="main">
       <div class="title-bar">
         <div class="title">Portfolio - Keshav Acharya</div>
       </div>
@@ -26,7 +28,7 @@
         I'm especially interested in systems programming, backend architecture, and human-centered design.
       </p>
       <p>
-        Currently I'm in my third year at the University of Washington, studying Computer Science and Economics.
+        I'm pursuing a B.S. in Computer Science and a B.S. in Economics at the University of Washington, graduating in June 2027 (GPA: 3.84).
       </p>
         </section>
         <section>
@@ -43,35 +45,35 @@
           <li>
             <details open>
               <summary><strong>Languages</strong></summary>
-              Java, TypeScript, C++, JavaScript, Golang, C, Python, R, SQL, HTML, CSS
+              C++, Go, Java, TypeScript, JavaScript, Python, C, SQL, HTML, CSS
             </details>
           </li>
 
           <li>
             <details open>
               <summary><strong>Frameworks + Libraries</strong></summary>
-              NestJS, SpringBoot, React, Flutter, Tailwind, Axios, Jest
+              NestJS, React, Spring Boot, TypeORM, Flutter, Tailwind CSS, Axios, Node.js
             </details>
           </li>
 
           <li>
             <details open>
               <summary><strong>DevOps + Infrastructure</strong></summary>
-              Kubernetes, Docker, Azure, GitLab CI/CD
+              Kubernetes, Docker, Microsoft Azure, GitLab CI/CD, GitHub Actions
             </details>
           </li>
 
           <li>
             <details open>
               <summary><strong>Tools + Build Systems</strong></summary>
-              Git, Rush, Bazel, Vite, Postgres
+              Git, Rush, Bazel, Protobuf, Vite
             </details>
           </li>
 
           <li>
             <details open>
               <summary><strong>Database</strong></summary>
-              Postgres, SQLite
+              PostgreSQL, Microsoft Azure SQL, Hive
             </details>
           </li>
         </ul>
@@ -79,14 +81,15 @@
     </section>
         <section>
           <h2>Links/Contact</h2>
+          <p>Email: <a href="mailto:keshav.ach@outlook.com">keshav.ach@outlook.com</a></p>
           <p>GitHub: <a href="https://github.com/keshava1">keshava1</a></p>
           <p>LinkedIn: <a href="https://www.linkedin.com/in/keshavach/">keshavach</a></p>
         </section>
         <section>
-          <h2> <a href="Keshav_Acharya.pdf" target="_blank"> Resumé (PDF) </a> </h2>
+          <h2> <a href="Keshav_Acharya.pdf" target="_blank" rel="noopener"> Resumé (PDF) </a> </h2>
         </section>
       </div>
-    </div>
+    </main>
     
     <script src="./info.js"></script>
     <script src="./components/navbar.js"></script>
@@ -99,10 +102,34 @@
         }
         PROJECTS.forEach(p => {
           const li = document.createElement("li");
-          li.innerHTML = `
-            <strong><a href="${p.link}" target="_blank">${p.name} (${p.year})</a></strong><br>
-            ${p.description}
-          `;
+          const projectDetails = (p.details || [])
+            .map(paragraph => `<p>${paragraph}</p>`).join("");
+          const projectStack = p.stack
+            ? `<p><strong>Technologies:</strong> ${p.stack}</p>` : "";
+          const projectRepository = p.repository
+            ? `<p><a href="${p.repository}" target="_blank" rel="noopener">Source code on GitHub</a></p>` : "";
+          if (p.link) {
+            li.innerHTML = `
+              <strong><a href="${p.link}" target="_blank" rel="noopener">${p.name}${p.year ? ` (${p.year})` : ""}</a></strong><br>
+              ${p.description}
+              ${projectDetails ? `
+                <details class="project-details">
+                  <summary>Implementation details</summary>
+                  ${projectDetails}
+                  ${projectStack}
+                  ${projectRepository}
+                </details>` : ""}
+            `;
+          } else {
+            li.innerHTML = `
+              <details class="project-details">
+                <summary><strong>${p.name}</strong></summary>
+                <p>${p.description}</p>
+                ${projectDetails}
+                ${projectStack}
+              </details>
+            `;
+          }
           list.appendChild(li);
         });
       }
@@ -110,7 +137,6 @@
       function renderExperienceSection() {
         const list = document.getElementById("experience-list");
         if(!list) {
-          console.log("No list");
           return;
         }
         
@@ -118,13 +144,13 @@
           const li = document.createElement("li");
           if(e.link) {
             li.innerHTML = `
-                <strong><a href="${e.link}" target="_blank">${e.company}</a></strong> - ${e.title}<br>
-                <i style="color: gray;">(${e.date})</i>
+                <strong><a href="${e.link}">${e.company}</a></strong> - ${e.title}<br>
+                <i class="experience-date">(${e.date})</i>
             `;
           } else {
             li.innerHTML = `
               <strong>${e.company}</strong> - ${e.title}<br>
-              <i style="color: gray;">(${e.date})</i>
+              <i class="experience-date">(${e.date})</i>
             `;
           }
 

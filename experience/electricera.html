@@ -1,73 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Built production software across cloud services, embedded charger systems, driver-facing interfaces, and charging operations.">
     <title>Electric Era - Keshav Acharya</title>
-    <link rel="stylesheet" href="https://sakofchit.github.io/system.css/system.css" />
+    <link rel="stylesheet" href="https://sakofchit.github.io/system.css/system.css">
+    <link rel="stylesheet" href="../style.css">
   </head>
-
   <body>
     <div id="navbar"></div>
-    <div class="window" style="max-width: 800px; margin: 40px auto;">
+    <main id="main" class="window portfolio-window">
       <div class="title-bar">
         <div class="title">Electric Era - Software Engineering Intern</div>
       </div>
-
       <div class="window-body">
         <div id="experience-header"></div>
-
         <section>
           <h2>Overview</h2>
-          <p>
-            At Electric Era, I worked on production systems that directly power and manage real-world electric vehicle
-            charging infrastructure. My work spanned backend APIs, hardware communication, firmware delivery,
-            real-time transaction control, and third-party interoperability.
-          </p>
+          <p>Built production software across cloud services, embedded charger systems, driver-facing interfaces, and charging operations.</p>
         </section>
-
         <section>
-          <h2>Key Contributions</h2>
-          <ul>
-            <li>
-              Designed and implemented a full <a href="https://evroaming.org/wp-content/uploads/2024/11/OCPI-2.2.1-d2.pdf">Open Charge Point Interface (OCPI 2.2.1)</a>
-              integration, including automated synchronization for site data and charging session status. Built
-              caching, diffing, and alerting logic to enforce strong data integrity and reliable interoperability with
-              third-party vendors.
-            </li>
-            <br>
-            <li>
-              Developed a complete remote transaction control flow for electric chargers (remote start and stop),
-              spanning cloud services down to charger hardware. Enabled third party vendors to reliably initiate sessions with
-              real-time status feedback while maintaining reliability under intermittent internet connectivity.
-            </li>
-            <br>
-            <li>
-              Engineered multiple over-the-air firmware update pipelines for different charger boards using serial connections,
-              Modbus, and FTP servers. Implemented validation and rollback systems to guarantee safe updates.
-              These pipelines were deployed and directly improved system reliability.
-            </li>
-            <br>
-            <li>
-              Integrated payment terminals to support RFID-based charging sessions, enabling drivers to initiate
-              charging without a credit card and expanding supported payment workflows.
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <p>
-            <a href="../index.html">← Back to Home</a>
-          </p>
-        </section>
+            <h2>April – June 2026</h2>
+            <ul>
+              <li>Built dynamic thermal controls for a control enclosure and refactored a legacy Go network management service into C++, reducing CPU use by approximately 30% while improving recovery from network faults.</li>
+              <li>Built a customer-facing troubleshooting flow that parsed charger diagnostic data and generated guided recovery steps tailored to the detected failure state.</li>
+              <li>Continued ownership of the OCPI platform, refactoring production services and completing two third-party integrations.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>April – September 2025</h2>
+            <ul>
+              <li>Designed, implemented, and owned an Open Charge Point Interface (OCPI 2.2.1) interoperability platform in NestJS and TypeORM. It synchronized site information, live charger status, and charging-session data from more than 100 EV chargers with external e-Mobility Service Providers (eMSPs).</li>
+              <li>Built caching, diffing, and alerting logic around automated synchronization to track changes and support data integrity across third-party integrations.</li>
+              <li>Built end-to-end remote start and stop flows connecting eMSPs, cloud services, and charger hardware. The integration provided real-time status feedback and supported reliable charging-session control during intermittent internet connectivity.</li>
+              <li>Engineered three C++ over-the-air firmware update pipelines across charger boards using serial, Modbus, and FTP interfaces. Update validation and rollback support helped make field updates reliable; the pipelines were deployed across the charging fleet and reduced maintenance overhead.</li>
+              <li>Engineered an RFID payment flow across physical payment terminals, charger hardware, and backend services. Cloud authorization enabled drivers to initiate charging sessions with RFID cards, adding a new payment method.</li>
+              <li>Built a charger outage classification tool for the operations team, streamlining root-cause tracking and supporting compliance processes related to National Electric Vehicle Infrastructure (NEVI) funding eligibility.</li>
+            </ul>
+          </section>
+        <section><p><a href="../index.html">← Back to Home</a></p></section>
       </div>
-    </div>
-
+    </main>
     <script src="../info.js"></script>
-    <script src="/components/navbar.js"> </script>
-    <script src="/components/experienceheader.js"></script>
-    <script>
-      renderExperienceHeader("Electric Era");
-    </script>
+    <script src="../components/navbar.js"></script>
+    <script src="../components/experienceheader.js"></script>
+    <script>renderExperienceHeader("Electric Era");</script>
   </body>
 </html>

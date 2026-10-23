@@ -20,3 +20,77 @@
   max-height: 400px; /* enough space to expand */
   transition: max-height 0.25s ease-in;
 }
+
+
+/* Small refinements to the original System.css layout. */
+.portfolio-window {
+  max-width: 800px;
+  margin: 40px auto;
+}
+.window-body section + section {
+  margin-top: 24px;
+}
+#experience-list > li,
+#project-list > li {
+  margin-bottom: 16px;
+}
+.experience-date {
+  color: #595959;
+}
+.project-details > summary {
+  cursor: pointer;
+}
+.project-details > p {
+  margin: 12px 0 0;
+}
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.experience-logo {
+  width: 150px;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.experience-logo-link {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.experience-logo-link .experience-logo {
+  display: block;
+  margin-left: 0;
+}
+.window-body section > ul > li {
+  margin-bottom: 12px;
+}
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .portfolio-window {
+    margin: 20px 12px;
+  }
+  .experience-header {
+    flex-wrap: wrap;
+  }
+  .experience-logo {
+    width: 120px;
+    margin-left: 0;
+  }
+  .experience-logo-link {
+    margin-left: 0;
+  }
+  [role="menu-bar"] {
+    flex-wrap: wrap;
+  }
+  .window-body {
+    overflow-wrap: anywhere;
+  }
+}

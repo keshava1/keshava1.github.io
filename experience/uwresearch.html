@@ -1,55 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explored how students could prove their eligibility for a university community without handing over their personal identifiers.">
     <title>University of Washington - Keshav Acharya</title>
-    <link rel="stylesheet" href="https://sakofchit.github.io/system.css/system.css" />
+    <link rel="stylesheet" href="https://sakofchit.github.io/system.css/system.css">
+    <link rel="stylesheet" href="../style.css">
   </head>
-
   <body>
     <div id="navbar"></div>
-
-    <div class="window" style="max-width: 800px; margin: 40px auto;">
+    <main id="main" class="window portfolio-window">
       <div class="title-bar">
-        <div class="title">University of Washington - Undergraduate Researcher</div>
+        <div class="title">University of Washington - Undergraduate Student Researcher</div>
       </div>
-
       <div class="window-body">
-
         <div id="experience-header"></div>
-
         <section>
           <h2>Overview</h2>
-          <p>
-            • Developed an anonymous verification flow for UW students in Go utilizing the <a href="https://eprint.iacr.org/2024/447">Origo</a> framework, using zero-
-            knowledge proofs and TLS oracles.
-          </p>
-          <p>
-            • Used our verification flow to develop a student-only UW discussion forum without storing personal identifiers.
-          </p>
-        </section>
-
-        <section>
-          <h2><a href="https://github.com/abanrj/sp-2025-oracle-project">Github page</a></h2>
+          <p>Explored how students could prove their eligibility for a university community without handing over their personal identifiers.</p>
         </section>
         <section>
-          <p>
-            <a href="/index.html">← Back to Home</a>
-          </p>
-        </section>
-
+            <h2>Key Contributions</h2>
+            <ul>
+              <li>At the Paul G. Allen School of Computer Science &amp; Engineering, developed a privacy-preserving verification flow for University of Washington students in Go, using the Origo framework, zero-knowledge proofs, and TLS oracles.</li>
+              <li>Applied that flow to a student-only UW discussion forum. The verification step established eligibility for the community without storing or exposing personal identifiers, keeping identity verification separate from participation in discussions.</li>
+            </ul>
+          </section>
+          <section><h2><a href="https://github.com/abanrj/sp-2025-oracle-project">GitHub page</a></h2></section>
+        <section><p><a href="../index.html">← Back to Home</a></p></section>
       </div>
-    </div>
-
-    <!-- Shared data + components -->
-    <script src="/info.js"></script>
-    <script src="/components/navbar.js"></script>
-    <script src="/components/experienceHeader.js"></script>
-
-    <!-- Page init -->
-    <script>
-      renderExperienceHeader("University of Washington");
-    </script>
+    </main>
+    <script src="../info.js"></script>
+    <script src="../components/navbar.js"></script>
+    <script src="../components/experienceheader.js"></script>
+    <script>renderExperienceHeader("University of Washington");</script>
   </body>
 </html>
