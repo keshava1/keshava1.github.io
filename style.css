@@ -73,6 +73,135 @@ summary:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
+
+/* The arcade stays out of the layout until its title-bar icon is discovered. */
+[hidden] {
+  display: none !important;
+}
+.portfolio-window > .title-bar {
+  position: relative;
+}
+.arcade-secret {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 23px;
+  min-width: 0;
+  padding: 2px;
+  color: #222;
+  background: #fff;
+  border: 1px solid #222;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+}
+.portfolio-window > .title-bar > .title {
+  max-width: calc(100% - 82px);
+}
+.arcade-window {
+  box-sizing: border-box;
+  min-width: 0;
+  position: fixed;
+  top: 80px;
+  left: calc(50% + 420px);
+  width: 264px;
+  z-index: 5;
+  background: #fff;
+  border: 1px solid #111;
+  box-shadow: 2px 2px 0 #111;
+}
+.arcade-window > .title-bar {
+  position: relative;
+}
+.arcade-window > .window-body {
+  padding: 14px 18px;
+}
+.arcade-close {
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  min-width: 0;
+  padding: 0;
+  border: 1px solid #111;
+  border-radius: 0;
+  background: #fff;
+  font: 16px/14px monospace;
+  cursor: pointer;
+}
+.arcade-hud,
+.arcade-help,
+.arcade-status {
+  font: 11px/1.5 monospace;
+}
+.arcade-hud {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+#arcade-screen {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border: 1px solid #111;
+  image-rendering: pixelated;
+  touch-action: none;
+}
+.arcade-status {
+  min-height: 33px;
+  margin: 10px 0 4px;
+}
+.arcade-help {
+  margin: 0 0 10px;
+  color: #444;
+}
+.arcade-actions,
+.arcade-touch {
+  display: flex;
+  gap: 8px;
+}
+.arcade-actions > button,
+.arcade-touch > button {
+  flex: 1;
+  min-width: 0;
+}
+.arcade-touch {
+  display: none;
+  margin-top: 10px;
+}
+.arcade-touch > button {
+  min-height: 40px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.arcade-window button:focus-visible,
+.arcade-secret:focus-visible,
+#arcade-screen:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 3px;
+}
+@media (max-width: 1399px) {
+  .arcade-window {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(264px, calc(100% - 24px));
+    margin: 24px auto;
+  }
+}
+@media (pointer: coarse) {
+  .arcade-touch {
+    display: flex;
+  }
+}
 @media (max-width: 600px) {
   .portfolio-window {
     margin: 20px 12px;

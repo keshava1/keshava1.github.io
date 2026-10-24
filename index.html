@@ -14,6 +14,9 @@
     <main class="window portfolio-window" id="main">
       <div class="title-bar">
         <div class="title">Portfolio - Keshav Acharya</div>
+        <button class="arcade-secret" id="arcade-secret" type="button" aria-label="Secret" aria-expanded="false" aria-controls="arcade" hidden>
+          <svg viewBox="0 0 11 8" width="22" height="16" aria-hidden="true" shape-rendering="crispEdges"><path fill="currentColor" d="M2 0h1v1H2zm6 0h1v1H8zM3 1h5v1H3zM2 2h7v1H2zM1 3h2v1H1zm3 0h3v1H4zm4 0h2v1H8zM0 4h11v2H0zM0 6h1v1H0zm2 0h1v1H2zm6 0h1v1H8zm2 0h1v1h-1zM3 7h2v1H3zm3 0h2v1H6z"/></svg>
+        </button>
       </div>
 
       <div class="window-body">
@@ -90,9 +93,35 @@
         </section>
       </div>
     </main>
+
+    <aside id="arcade" class="window arcade-window" aria-labelledby="arcade-title" hidden>
+      <div class="title-bar">
+        <button id="arcade-close" class="arcade-close" type="button" aria-label="Close arcade">×</button>
+        <div class="title" id="arcade-title">Space Invaders</div>
+      </div>
+      <div class="window-body">
+        <div class="arcade-hud" aria-label="Game statistics">
+          <span>Score <span id="arcade-score">0000</span></span>
+          <span>Lives <span id="arcade-lives">3</span></span>
+        </div>
+        <canvas id="arcade-screen" width="224" height="256" tabindex="0" role="img" aria-label="Space Invaders playfield" aria-describedby="arcade-help arcade-status">Space Invaders requires a browser with canvas support.</canvas>
+        <p id="arcade-status" class="arcade-status" role="status" aria-live="polite">A little break between projects.</p>
+        <p id="arcade-help" class="arcade-help">← → move · ↑ / Space fire<br>↓ / P pause · Esc close</p>
+        <div class="arcade-actions">
+          <button id="arcade-toggle" class="btn" type="button">Start</button>
+          <button id="arcade-restart" class="btn" type="button">Restart</button>
+        </div>
+        <div class="arcade-touch" aria-label="Touch controls">
+          <button class="btn" type="button" data-arcade-key="ArrowLeft" aria-label="Move left">←</button>
+          <button class="btn" type="button" data-arcade-key="ArrowUp" aria-label="Fire">Fire</button>
+          <button class="btn" type="button" data-arcade-key="ArrowRight" aria-label="Move right">→</button>
+        </div>
+      </div>
+    </aside>
     
     <script src="./info.js"></script>
     <script src="./components/navbar.js"></script>
+    <script src="./components/arcade.js"></script>
     <script>
 
       function renderProjectSection() {
