@@ -8,7 +8,10 @@
   const toggle = document.getElementById('arcade-toggle');
   const status = document.getElementById('arcade-status');
   const scoreLabel = document.getElementById('arcade-score');
+  const bestLabel = document.getElementById('arcade-best');
   const livesLabel = document.getElementById('arcade-lives');
+  const highScoreCookie = 'arcade_high_score';
+  let bestScore = readHighScore();
   const width = canvas.width;
   const height = canvas.height;
   const keys = new Set();
@@ -40,8 +43,37 @@
     status.textContent = message;
   }
 
+  function readHighScore() {
+    try {
+      const value = document.cookie.split(';').map(cookie => cookie.trim())
+        .find(cookie => cookie.startsWith(`${highScoreCookie}=`))
+        ?.slice(highScoreCookie.length + 1);
+      if (!value || !/^\d+$/.test(value)) return 0;
+      const saved = Number(value);
+      return Number.isSafeInteger(saved) ? saved : 0;
+    } catch {
+      return 0;
+    }
+  }
+
+  function saveHighScore() {
+    if (score <= bestScore) return;
+    // Keep a higher record saved by another tab, if one exists.
+    bestScore = Math.max(bestScore, readHighScore());
+    if (score <= bestScore) return;
+    bestScore = score;
+    try {
+      const secure = location.protocol === 'https:' ? '; Secure' : '';
+      document.cookie = `${highScoreCookie}=${bestScore}; Max-Age=31536000; Path=/; SameSite=Lax${secure}`;
+    } catch {
+      // The current session still tracks its best score if cookies are blocked.
+    }
+  }
+
   function updateHud() {
+    saveHighScore();
     scoreLabel.textContent = String(score).padStart(4, '0');
+    bestLabel.textContent = String(bestScore).padStart(4, '0');
     livesLabel.textContent = String(lives);
   }
 
